@@ -637,6 +637,68 @@ a:focus, button:focus{outline:3px solid rgba(0,27,96,0.12);outline-offset:2px}
   font-weight: 700;
   color: var(--brand-red);
 }
+/* Slideshow */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
 
+.hero-slides {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+/* Make sure hero content sits above the slides */
+.hero-inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* Dark overlay so text stays readable */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+/* Dot indicators */
+.hero-dots {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 3;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dot.active {
+  background: #fff;
+}
 </body>
 </html>
